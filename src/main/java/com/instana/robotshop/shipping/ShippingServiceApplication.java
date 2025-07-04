@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.retry.annotation.EnableRetry;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -24,6 +25,7 @@ import java.util.Random;
 @SpringBootApplication
 @EnableRetry
 @EnableWebMvc
+@EnableCaching
 public class ShippingServiceApplication implements WebMvcConfigurer {
 
     private static final String[] DATA_CENTERS = {
