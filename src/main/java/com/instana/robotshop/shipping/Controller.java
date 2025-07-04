@@ -68,8 +68,6 @@ public class Controller {
 
     @GetMapping("/codes")
     public Iterable<Code> codes() {
-        logger.info("all codes");
-
         Iterable<Code> codes = coderepo.findAll(Sort.by(Sort.Direction.ASC, "name"));
 
         return codes;
@@ -77,8 +75,6 @@ public class Controller {
 
     @GetMapping("/cities/{code}")
     public List<City> cities(@PathVariable String code) {
-        logger.info("cities by code {}", code);
-
         List<City> cities = cityrepo.findByCode(code);
 
         return cities;
@@ -86,8 +82,6 @@ public class Controller {
 
     @GetMapping("/match/{code}/{text}")
     public List<City> match(@PathVariable String code, @PathVariable String text) {
-        logger.info("match code {} text {}", code, text);
-
         if (text.length() < 3) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
@@ -110,8 +104,6 @@ public class Controller {
         double homeLatitude = 51.164896;
         double homeLongitude = 7.068792;
 
-        logger.info("Calculation for {}", id);
-
         City city = cityrepo.findById(id);
         if (city == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "city not found");
@@ -122,7 +114,6 @@ public class Controller {
         // avoid rounding
         double cost = Math.rint(distance * 5) / 100.0;
         Ship ship = new Ship(distance, cost);
-        logger.info("shipping {}", ship);
 
         return ship;
     }
@@ -130,9 +121,6 @@ public class Controller {
     // enforce content type
     @PostMapping(path = "/confirm/{id}", consumes = "application/json", produces = "application/json")
     public String confirm(@PathVariable String id, @RequestBody String body) {
-        logger.info("confirm id: {}", id);
-        logger.info("body {}", body);
-
         CartHelper helper = new CartHelper(CART_URL);
         String cart = helper.addToCart(id, body);
 
