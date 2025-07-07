@@ -62,7 +62,6 @@ public class ShippingServiceApplication implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new InstanaDatacenterTagInterceptor());
-        registry.addInterceptor(new LoggingInterceptor());
     }
 
     private static class InstanaDatacenterTagInterceptor extends HandlerInterceptorAdapter {
