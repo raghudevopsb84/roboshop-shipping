@@ -25,5 +25,5 @@ jobs:
         run: |
           az login --service-principal --username "${ARM_CLIENT_ID}" --password "${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
           az acr login --name roboshopb84
-          docker build -t roboshopb84.azurecr.io/roboshop-shipping-db-job:latest .
+          docker build -t roboshopb84.azurecr.io/roboshop-shipping-db-job:latest -f Dockerfile-dbjob .
           docker push roboshopb84.azurecr.io/roboshop-shipping-db-job:latest
