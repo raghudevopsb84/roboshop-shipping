@@ -2,5 +2,5 @@ FROM        redhat/ubi9
 RUN         dnf install mysql -y
 RUN         mkdir /app
 WORKDIR     /app
-COPY        db/ app/
+COPY        db/ /app/
 ENTRYPOINT  ["bash", "run.sh"]
