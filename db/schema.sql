@@ -1,4 +1,5 @@
 /*CREATE DATABASE IF NOT EXISTS cities;*/
+DROP DATABASE cities;
 CREATE DATABASE cities;
 
 use cities;
