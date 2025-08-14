@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS cities;
+/*CREATE DATABASE IF NOT EXISTS cities;*/
+CREATE DATABASE cities;
 
 use cities;
 
